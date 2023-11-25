@@ -1,0 +1,21 @@
+
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:mariadb://75.119.143.18:3306/iki?createDatabaseIfNotExist=true
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL8Dialect
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+iki:
+  app:
+    jwtSecret: ======================iki=Spring===========================
+    jwtExpirationMs: 86400000
