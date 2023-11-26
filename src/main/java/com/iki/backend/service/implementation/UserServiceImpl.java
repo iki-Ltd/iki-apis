@@ -27,12 +27,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseEntity<?> registerUser(SignupRequest request) {
-        if(userRepository.existsByUsername(request.getUsername())) {
-            return ResponseEntity
-                    .badRequest()
-                    .body(new MessageResponse("Error: Username is already taken!"));
-        }
-
         if(userRepository.existsByEmail(request.getEmail())){
             return ResponseEntity
                     .badRequest()
@@ -40,7 +34,8 @@ public class UserServiceImpl implements UserService {
         }
 
         //create new user account
-        User user = new User(request.getUsername(),
+        User user = new User(
+                request.getUsername(),
                 request.getEmail(),
                 encoder.encode(request.getPassword())
         );

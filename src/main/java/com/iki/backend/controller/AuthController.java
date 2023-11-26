@@ -1,7 +1,9 @@
 package com.iki.backend.controller;
 
 import com.iki.backend.model.dtos.LoginRequest;
+import com.iki.backend.model.dtos.SignupRequest;
 import com.iki.backend.service.AuthService;
+import com.iki.backend.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,12 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     private final AuthService authService;
+    private final UserService userService;
+
+    @RequestMapping(value = "/signup", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest request){
+        return userService.registerUser(request);
+    }
 
     @RequestMapping(value = "/signin", method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest request){

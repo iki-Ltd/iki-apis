@@ -1,7 +1,14 @@
 package com.iki.backend.service.implementation;
 
+import com.iki.backend.model.ERole;
+import com.iki.backend.model.Role;
+import com.iki.backend.model.User;
 import com.iki.backend.model.dtos.JwtResponse;
 import com.iki.backend.model.dtos.LoginRequest;
+import com.iki.backend.model.dtos.MessageResponse;
+import com.iki.backend.model.dtos.SignupRequest;
+import com.iki.backend.repository.RoleRepository;
+import com.iki.backend.repository.UserRepository;
 import com.iki.backend.security.jwt.JwtUtils;
 import com.iki.backend.security.services.UserDetailsImpl;
 import com.iki.backend.service.AuthService;
@@ -19,6 +26,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
+
     private final AuthenticationManager authenticationManager;
     private final JwtUtils jwtUtils;
 
@@ -35,6 +43,7 @@ public class AuthServiceImpl implements AuthService {
         List<String> roles = userDetails.getAuthorities().stream().map(item -> item.getAuthority())
                 .collect(Collectors.toList());
 
+
         return ResponseEntity.ok(new JwtResponse(
                 jwt,
                 userDetails.getId(),
@@ -43,6 +52,4 @@ public class AuthServiceImpl implements AuthService {
                 roles
         ));
     }
-
-
 }
