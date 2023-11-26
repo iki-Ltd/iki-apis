@@ -8,4 +8,6 @@ public interface UserService {
     ResponseEntity<?> registerUser(SignupRequest request);
     ResponseEntity<?> findUserById(Long userId);
 
+    ResponseEntity<?> getAllUsers();
+
 }

@@ -25,4 +25,9 @@ public class UserController {
         return userService.findUserById(userId);
     }
 
+    @RequestMapping(value = "/users", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<?> getAllUsers(){
+        return userService.getAllUsers();
+    }
+
 }

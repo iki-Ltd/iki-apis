@@ -7,15 +7,14 @@ import com.iki.backend.model.dtos.MessageResponse;
 import com.iki.backend.model.dtos.SignupRequest;
 import com.iki.backend.repository.RoleRepository;
 import com.iki.backend.repository.UserRepository;
-import com.iki.backend.security.jwt.JwtUtils;
 import com.iki.backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -86,5 +85,11 @@ public class UserServiceImpl implements UserService {
     public ResponseEntity<?> findUserById(Long userId) {
         Optional<User> user = userRepository.findById(userId);
         return ResponseEntity.ok(user);
+    }
+
+    @Override
+    public ResponseEntity<?> getAllUsers() {
+        List<User> users = userRepository.findAll();
+        return ResponseEntity.ok(users);
     }
 }

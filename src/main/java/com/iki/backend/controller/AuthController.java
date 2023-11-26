@@ -1,7 +1,6 @@
 package com.iki.backend.controller;
 
 import com.iki.backend.model.dtos.LoginRequest;
-import com.iki.backend.model.dtos.SignupRequest;
 import com.iki.backend.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -22,8 +21,4 @@ public class AuthController {
     }
 
 
-    @RequestMapping(value = "/users", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<?> getAllUsers(){
-        return authService.getAllUsers();
-    }
 }
