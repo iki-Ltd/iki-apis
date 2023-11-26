@@ -16,15 +16,14 @@ public class AuthController {
 
     private final AuthService authService;
 
-    @RequestMapping(value = "/signup", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest request){
-        return authService.registerUser(request);
-    }
-
     @RequestMapping(value = "/signin", method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest request){
         return authService.authenticateUser(request);
     }
 
 
+    @RequestMapping(value = "/users", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<?> getAllUsers(){
+        return authService.getAllUsers();
+    }
 }
