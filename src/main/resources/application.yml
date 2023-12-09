@@ -1,19 +1,18 @@
-spring:
-  datasource:
-    url: jdbc:mariadb://localhost:3308/iki?createDatabaseIfNotExist=true
-    username: root
-    password: 31875595
-  jpa:
-    hibernate:
-      dialect: org.hibernate.dialect.MySQL8Dialect
-      ddl-auto: update
-    show-sql: false
-    properties:
-      hibernate:
-        format_sql: true
-
 server:
   port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mariadb://137.184.191.7:3306/iki?createDatabaseIfNotExist=true
+    username: root
+    password: 123456
+    dialect: org.hibernate.dialect.MariaDBDialect
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+
 
 iki:
   app:
