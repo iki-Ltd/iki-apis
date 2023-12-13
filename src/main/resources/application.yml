@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mariadb://137.184.191.7:3306/iki?createDatabaseIfNotExist=true
-    username: root
-    password: 123456
+    url: jdbc:mariadb://75.119.143.18:3306/iki?createDatabaseIfNotExist=true
+    username: abdallah
+    password: mishobo@31875595
     dialect: org.hibernate.dialect.MariaDBDialect
   jpa:
     hibernate:

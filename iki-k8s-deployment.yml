@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iki-web-apis-deployment
+  labels:
+    app: iki-web-apis
+spec:
+  selector:
+    matchLabels:
+      app: iki-web-apis
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: iki-web-apis
+    spec:
+      containers:
+        - name: iki-web-apis
+          image: mishobo/iki-web-apis:005
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
